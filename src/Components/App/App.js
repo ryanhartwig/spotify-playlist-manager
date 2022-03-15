@@ -11,8 +11,9 @@ class App extends React.Component {
 
     this.state = {
       searchResults: [],
-      playlistName: "My Playlist",
-      playlistTracks: []
+      playlistName: 'New Playlist',
+      playlistTracks: [],
+      authorized: false
     }
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -25,16 +26,24 @@ class App extends React.Component {
     Spotify.search(term)
       .then(results => {
         this.setState( {searchResults: results });
+      }).catch(() => {
+        this.setState( {searchResults: [] });
       });
   }
 
   // Update when finding URI values for playlistTracks
   savePlaylist() {
-    let trackURIs = [];
-
-    for(const track of this.playlistTracks) {
-      trackURIs.push(track.uri);
-    }
+    const trackUris = this.state.playlistTracks.map(track => track.uri);
+    const playlistName = this.state.playlistName;
+    
+    Spotify.savePlaylist(playlistName, trackUris)
+    .then(() => {
+      this.setState( {
+        playlistName: 'New Playlist',
+        playlistTracks: []
+      });
+      document.getElementById('playlistName').value = '';
+    });
   }
 
   updatePlaylistName(name) {
@@ -51,7 +60,6 @@ class App extends React.Component {
 
   removeTrack(track) {
     let cutPlaylist = this.state.playlistTracks.filter(song => song.id !== track.id);
-
     this.setState({ playlistTracks: cutPlaylist });
   }
 

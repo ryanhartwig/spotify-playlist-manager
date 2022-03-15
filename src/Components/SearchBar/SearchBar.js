@@ -32,7 +32,6 @@ export default class SearchBar extends React.Component {
     return (
       <div className="SearchBar">
         <input placeholder={this.state.placeholder} onFocus={this.togglePlaceholder} onBlur={this.togglePlaceholder} onChange={this.handleTermChange}/>
-        <button className="SearchButton">SEARCH</button>
       </div>
     )
   }
