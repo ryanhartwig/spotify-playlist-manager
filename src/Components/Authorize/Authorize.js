@@ -6,7 +6,7 @@ let scope = 'playlist-modify-private playlist-read-private playlist-modify-publi
 // redirect uris
 // http://rh_jamming.surge.sh or http://localhost:3000/
 
-let redirect_uri = 'http://localhost:3000/';
+let redirect_uri = window.location.href;
 // Auth url & query params
 
 let url = 'https://accounts.spotify.com/authorize';
