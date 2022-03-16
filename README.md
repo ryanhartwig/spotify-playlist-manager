@@ -60,13 +60,12 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Writing lyrics is often difficult. Writer's block happens to the best of us, and in an effort to help reduce it, I've created this lyric writer app, which is a single page web application aimed to give you a clean & easy to use workspace to layout your lyric ideas.
+This app provides a convenient layout of all your Spotify playlists, and allows you to add, remove, or edit them to your choosing. 
 
-As you begin writing, you'll be provided with: 
-* Syllable count
-* Words that rhyme with the selected word (last in line by default)
-* Word fill suggestions
-* Related nouns, adjectives, etc
+* Select the playlist you'd like to edit (or create a new one)
+* If it is an existing playlist, the tracks will appear
+* Drag and drop to reorder, or add / remove them as needed
+* Save your changes and they will update straight to your spotify playlists
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -78,8 +77,7 @@ As you begin writing, you'll be provided with:
 Libraries, frameworks & APIs used to create this app: 
 
 * [React.js](https://reactjs.org/)
-* [Datamuse API](https://www.datamuse.com/api/)
-* [Wordnik API](https://developer.wordnik.com/)
+* [Spotify API](https://developer.spotify.com/documentation/web-api/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -137,11 +135,14 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [x] Readme, project directory & intial structure
-- [ ] Webpage layout & app structure
-- [ ] React implementation
-- [ ] Text editor functionality
-- [ ] API requests to JSON and appropriate handlers
-- [ ] Word sample interactivity
+- [x] Webpage layout & app structure
+- [x] React implementation
+- [x] Search & add/remove tracks functionality
+- [x] API requests to update & save playlists
+- [ ] Get user playlists and import them
+- [ ] Allow user to select existing playlists and edit
+- [ ] Drag and drop functionality
+- [ ] Show playlist photo preview while editing
 - [ ] Multi-language Support
     - [ ] French
 
