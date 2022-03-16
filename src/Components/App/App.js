@@ -4,6 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/Spotify';
+import Authorize from '../Authorize/Authorize';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends React.Component {
       searchResults: [],
       playlistName: 'New Playlist',
       playlistTracks: [],
-      authorized: false
+      authorized: ''
     }
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -21,7 +22,7 @@ class App extends React.Component {
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
   }
-
+  
   search(term) {
     Spotify.search(term)
       .then(results => {
@@ -47,7 +48,11 @@ class App extends React.Component {
   }
 
   updatePlaylistName(name) {
-    this.setState({ playlistName: name });
+    if (!name.length) { 
+      this.setState({ playlistName: 'New Playlist' });
+    } else {
+      this.setState({ playlistName: name });
+    }
   }
 
   addTrack(track) {
@@ -67,6 +72,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
+        <Authorize authorized={this.state.authorized}/>
         <div className="App">
           <SearchBar onSearch={this.search}/>
           <div className="App-playlist">
@@ -81,6 +87,16 @@ class App extends React.Component {
         </div>
       </div>
     )
+  }
+
+  // Check authorization
+  componentDidMount() {
+    if(Spotify.getAccessToken()) {
+      this.setState({authorized: true });
+      document.body.style.overflowY = 'scroll';
+    } else {
+      this.setState({authorized: false});
+    }
   }
 }
 

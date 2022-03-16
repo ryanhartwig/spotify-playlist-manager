@@ -8,6 +8,47 @@ html {
   font-size: 18px;
 }
 
+/* Authorize Overlay */
+#authOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.79);
+  z-index: 10000;
+  text-align: center;
+}
+
+#authBox {
+  margin: 25vh auto;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.619);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+#authButton {
+  cursor: pointer;
+  width: 15rem;
+  padding: .77rem 0;
+  border-radius: 54px;
+  border-width: 0px;
+  margin-top: 1.27rem;
+  background-color: #1ed760;
+  text-align: center;
+  font-size: .66rem;
+  transition: background-color .25s;
+  color:black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+#authButton:hover {
+  background-color: #1ed75fd0;
+}
+
+/* ---- */
+
 h1 {
   padding: .77rem 0;
   background-color: #010c3f;

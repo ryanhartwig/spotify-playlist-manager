@@ -1,18 +1,6 @@
 let access_token = ''
-let currentUrl = window.location.href,
-client_id = 'b5a9474ceaa645e797e974c555e1b3af',
-scope = 'playlist-modify-private playlist-read-private playlist-modify-public';
-// redirect uris
-// http://rh_jamming.surge.sh or http://localhost:3000/
+let currentUrl = window.location.href;
 
-let redirect_uri = 'http://rh_jamming.surge.sh';
-// Auth url & query params
-let url = 'https://accounts.spotify.com/authorize';
-url += '?response_type=token';
-url += '&client_id=' + encodeURIComponent(client_id);
-url += '&scope=' + encodeURIComponent(scope);
-url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
-url += '&show_dialog=true';
 
 const accessRegex = /access_token=([^&]*)/;
 const expireRegex = /expires_in=([^&]*)/;
@@ -32,13 +20,12 @@ const Spotify = {
         access_token = '';
       }, expiresIn*1000)
       window.history.pushState('Access Token', null, '/');
-
       return access_token;
     } 
 
     // access token is empty & not in url
     else { 
-      window.location = url; //authorize
+      return false;
     }
   },
 
@@ -91,9 +78,6 @@ const Spotify = {
     const playlistIdJSON = await playlistIdResponse.json();
     
     let playlistID = playlistIdJSON.id;
-    console.log(`playlistID = ${playlistID}
-    playlistIdJSON = ${playlistIdJSON}`)
-
 
     // Post request playlist tracks
     return await fetch(`${baseURL}/playlists/${playlistID}/tracks`, {
