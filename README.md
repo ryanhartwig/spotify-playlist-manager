@@ -143,8 +143,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Allow user to select existing playlists and edit
 - [ ] Drag and drop functionality
 - [ ] Show playlist photo preview while editing
-- [ ] Multi-language Support
-    - [ ] French
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
@@ -199,9 +197,6 @@ Here's a list of helpful resources used to bring this project to life:
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
-
-<!-- * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/) -->
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
